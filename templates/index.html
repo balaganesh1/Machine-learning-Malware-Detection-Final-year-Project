@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Malware Detection</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename="img/aa.jpg")}}"/>
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.min.css")}}" />
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/owl.carousel.css")}}" />
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/owl.theme.default.css")}}" />
+
+	<!-- Magnific Popup -->
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/magnific-popup.css")}}" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{{ url_for('static', filename="css/font-awesome.min.css")}}">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/style.css")}}" />
+
+  <!-- FOR UPLOAD BUTTON -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300'>
+	<link rel="stylesheet" href="{{ url_for('static', filename="css/styles.css")}}">
+	<!--FINISH-->
+
+</head>
+
+<body>
+	<!-- Header -->
+	<header id="home">
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('{{ url_for('static', filename="./img/background1.jpg")}}');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+		<!-- Nav -->
+		<nav id="nav" class="navbar nav-transparent">
+			<div class="container">
+
+				<div class="navbar-header">
+					<!-- Logo -->
+					<div class="navbar-brand">
+						<br>
+						<a href="index.html">
+							<h3 style="color:black;" class="logo">Final Year Project</h3>
+							<h3 style="color:white;" class="logo-alt">Final Year Project</h3>
+						</a>
+					</div>
+					<!-- /Logo -->
+
+					<!-- Collapse nav button -->
+					<div class="nav-collapse">
+						<span></span>
+					</div>
+					<!-- /Collapse nav button -->
+				</div>
+
+				<!--  Main navigation  -->
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#features">Project Detail</a></li>
+					<li><a href="#team">Team</a></li>
+				</ul>
+				<!-- /Main navigation -->
+
+			</div>
+		</nav>
+		<!-- /Nav -->
+
+		<!-- home wrapper -->
+		<div class="home-wrapper">
+			<div class="container">
+				<div class="row">
+
+					<!-- home content -->
+    <center><br><br><br><div class="upload">
+			<form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data" id="myFile" >
+				 <div class="upload-files">
+					<header>
+					 <p>
+						<i class="fa fa-cloud-upload" aria-hidden="true"></i>
+						<span class="up">up</span>
+						<span class="load">load</span>
+					 </p>
+					</header>
+					<div class="body" id="drop">
+					 <i class="fa fa-file-text-o pointer-none" aria-hidden="true"></i>
+					 <p class="pointer-none"><b>Drag and drop</b> files here <br /> or <a href="" id="triggerFile">browse</a> to begin the upload</p>
+							<input type = "file" name = "file"  multiple="multiple" />
+					</div>
+					<footer>
+					 <div class="divider">
+						<span><AR>FILES</AR></span>
+					 </div>
+					 <div class="list-files">
+						<!--   template   -->
+					 </div>
+							<button class="importar">Start Detection</button>
+					</footer>
+				 </div>
+			 </form>
+    </div></center>
+					<!-- /home content -->
+
+				</div>
+			</div>
+		</div>
+		<!-- /home wrapper -->
+
+	</header>
+	<!-- /Header -->
+
+	<!-- Why Choose Us -->
+	<div id="features" class="section md-padding bg-grey">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- why choose us content -->
+				<div class="col-md-6">
+					<div class="section-header">
+						<h2 class="title">What our Project Does</h2>
+					</div>
+					<p>A Machine Learning approach for classifying any unseen file as Malicious or Legitimate.<br></p>
+					<div class="feature">
+						<i class="fa fa-check"></i>
+						<p>This approach tries out 5 different classification algorithms,used for prediction and comparing their results.</p>
+					</div>
+					<div class="feature">
+						<i class="fa fa-check"></i>
+						<p>Machine Learning models tried are,RandomForest, DecisionTree, Adaboost, Gaussian, Gradient Boosting.</p>
+					</div>
+					<div class="feature">
+						<i class="fa fa-check"></i>
+						<p>In order to test the model for file, it's required to extract the characteristics of the given file.</p>
+					</div>
+					<div class="feature">
+						<i class="fa fa-check"></i>
+						<p>ML model is used to predict the class for the given file based on the already trained model.</p>
+					</div>
+				</div>
+				<!-- /why choose us content -->
+
+				<!-- About slider -->
+				<div class="col-md-6">
+					<br>
+					<div id="about-slider" class="owl-carousel owl-theme">
+						<img class="img-responsive" align="right" src="{{ url_for('static', filename="./img/team27.png")}}" alt="">
+						<img class="img-responsive" align="right" src="{{ url_for('static', filename="./img/team25.png")}}" alt="">
+						<img class="img-responsive" align="right" src="{{ url_for('static', filename="./img/team28.png")}}" alt="">
+						<img class="img-responsive" align="right" src="{{ url_for('static', filename="./img/team22.png")}}" alt="">
+						<img class="img-responsive" align="right" src="{{ url_for('static', filename="./img/team23.png")}}" alt="">
+						<img class="img-responsive" align="right" src="{{ url_for('static', filename="./img/team26.png")}}" alt="">
+					</div>
+				</div>
+				<!-- /About slider -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Why Choose Us -->
+
+
+	<!-- Numbers -->
+	<div id="numbers" class="section sm-padding">
+
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('{{ url_for('static', filename="./img/blog2.jpg")}}');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- number -->
+				<div class="col-sm-3 col-xs-6">
+					<div class="number">
+						<i class="fa fa-users"></i>
+						<h3 class="white-text"><span class="counter">4</span></h3>
+						<span class="white-text">Team Members</span>
+					</div>
+				</div>
+				<!-- /number -->
+
+				<!-- number -->
+				<div class="col-sm-3 col-xs-6">
+					<div class="number">
+						<i class="fa fa-trophy"></i>
+						<h3 class="white-text"><span class="counter">">100"</span></h3>
+						<span class="white-text">Problem Solved</span>
+					</div>
+				</div>
+				<!-- /number -->
+
+				<!-- number -->
+				<div class="col-sm-3 col-xs-6">
+					<div class="number">
+						<i class="fa fa-coffee"></i>
+						<h3 class="white-text"><span class="counter">154</span></h3>
+						<span class="white-text">Cups of Tea</span>
+					</div>
+				</div>
+				<!-- /number -->
+
+				<!-- number -->
+				<div class="col-sm-3 col-xs-6">
+					<div class="number">
+						<i class="fa fa-file"></i>
+						<h3 class="white-text"><span class="counter">05/04/2018</span></h3>
+						<span class="white-text">Project completed</span>
+					</div>
+				</div>
+				<!-- /number -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Numbers -->
+
+
+	<!-- Team -->
+	<div id="team" class="section md-padding">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">Our 'Final Year Project' Team</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- team -->
+				<div class="col-sm-3">
+					<div class="team">
+						<div class="team-img">
+							<img class="img-responsive" src="{{ url_for('static', filename="./img/team21.jpeg")}}" alt="">
+							<div class="overlay">
+								<div class="team-social">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="team-content">
+							<h3>Akash Singh Sengar</h3>
+							<span>Developer</span>
+						</div>
+					</div>
+				</div>
+				<!-- /team -->
+
+				<!-- team -->
+				<div class="col-sm-3">
+					<div class="team">
+						<div class="team-img">
+							<img class="img-responsive" src="{{ url_for('static', filename="./img/team18.jpeg")}}" alt="">
+							<div class="overlay">
+								<div class="team-social">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="team-content">
+							<h3>Amit Pandey</h3>
+							<span>Developer</span>
+						</div>
+					</div>
+				</div>
+				<!-- /team -->
+
+				<!-- team -->
+				<div class="col-sm-3">
+					<div class="team">
+						<div class="team-img">
+							<img class="img-responsive" src="{{ url_for('static', filename="./img/team19.jpeg")}}" alt="">
+							<div class="overlay">
+								<div class="team-social">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="team-content">
+							<h3>Ashutosh Yadav</h3>
+							<span>Developer</span>
+						</div>
+					</div>
+				</div>
+				<!-- /team -->
+
+
+				<!-- team -->
+				<div class="col-sm-3">
+					<div class="team">
+						<div class="team-img">
+							<img class="img-responsive" src="{{ url_for('static', filename="./img/team20.jpeg")}}" alt="">
+							<div class="overlay">
+								<div class="team-social">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</div>
+							</div>
+						</div>
+						<div class="team-content">
+							<h3>Anshuman Mishra</h3>
+							<span>Developer</span>
+						</div>
+					</div>
+				</div>
+				<!-- /team -->
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Team -->
+
+
+
+
+
+	<!-- Back to top -->
+	<div id="back-to-top"></div>
+	<!-- /Back to top -->
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!-- /Preloader -->
+
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="{{ url_for('static', filename="js/jquery.min.js")}}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename="js/bootstrap.min.js")}}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename="js//owl.carousel.min.js")}}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename="js/jquery.magnific-popup.js")}}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename="js/main.js")}}"></script>
+	<script  src="{{ url_for('static', filename="js/index.js")}}"></script>
+
+</body>
+
+</html>

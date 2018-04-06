@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detecting</title>
+    <!--Bootstrap 4-->
+    	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.min.css")}}" />
+      <link rel="shortcut icon" href="{{ url_for('static', filename="img/aa.jpg")}}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <style>
+     #body {background-image: url("{{ url_for('static', filename="img/aa2.jpg")}}"); }
+    #boxshadow {
+        position: relative;
+        margin-top: 20px;
+        width: 300px;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+        background: white;
+    }
+</style>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body bgcolor="#E6E6FA">
+    <div class="container">
+
+    {% if prediction == "legitimate" %}
+       <center><h1 style="color: green;  font-family: 'Comic Sans MS', cursive, sans-serif;"> <div id="boxshadow">This Software is legitimate</div></h1></center>
+       <div class="pt-5 d-none d-md-block wow fadeInRight">
+       <center><a href="#"><img src="{{ url_for('static', filename="img/tick.jpg")}}" class="store-img"/> </a></center>
+       </div>
+    {% elif prediction == "malicious" %}
+    <center><h1 style="color: red;  font-family: 'Comic Sans MS', cursive, sans-serif; margin-right:150px;"> <div id="boxshadow">This Software is malicious</div></h1></center>
+    <div class="pt-5 d-none d-md-block wow fadeInRight">
+    <center><a href="#"><img src="{{ url_for('static', filename="img/cross.jpg")}}" class="store-img"/> </a></center>
+    </div>
+    {% endif %}
+
+
+</container>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename="js/scripts.js")}}"></script>
+  </body>
+</html>
